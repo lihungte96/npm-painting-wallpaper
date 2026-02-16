@@ -10,6 +10,8 @@ This project uses **Open Data** from the [National Palace Museum Collection](htt
 npm-painting-wallpaper
 ├── start.py           # 主程式：HTTP 服務與故宮 API 串接
 ├── requirements.txt
+├── Dockerfile         # Cloud Run 容器建置
+├── .dockerignore
 ├── README.md
 └── .gitignore
 ```
@@ -40,6 +42,8 @@ python start.py
 預設於 `http://localhost:8000/` 提供服務：
 
 - **GET /** 或 **GET /random**：回傳一筆隨機繪畫資料（JSON），內含 `title`、`image_url`、`height`、`width`、`cc_title`（已含 CC BY 4.0 英文標示，可作為圖檔出處）等欄位，可依此下載圖片並設為桌布。
+
+部署至 **Google Cloud Run** 的步驟請見 [DEPLOY_GCP.md](DEPLOY_GCP.md)。
 
 ---
 

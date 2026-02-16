@@ -1,4 +1,5 @@
 import json
+import os
 import random
 import urllib3
 import requests
@@ -178,7 +179,8 @@ class ArtifactHandler(BaseHTTPRequestHandler):
         print("[HTTP]", *args)
 
 
-def run_server(port=8000):
+def run_server(port=None):
+    port = port or int(os.environ.get("PORT", 8000))
     server = HTTPServer(("", port), ArtifactHandler)
     print(f"Server at http://localhost:{port}/  (GET / or /random for JSON)")
     server.serve_forever()
